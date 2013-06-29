@@ -1,2 +1,4 @@
-settings.py
 db
+*.pyc
+*.html~
+*.css~

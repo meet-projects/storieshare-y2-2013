@@ -1,10 +1,10 @@
 from django.conf.urls import patterns, include, url
-
+from stories import views
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
 
-urlpatterns = patterns('',
+urlpatterns = patterns('', url (r'^storieshare/' , views.homepage) 
     # Examples:
     # url(r'^$', 'storieshare.views.home', name='home'),
     # url(r'^storieshare/', include('storieshare.foo.urls')),

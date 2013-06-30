@@ -1,0 +1,50 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="sories.css">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+
+		<script type="text/javascript">
+
+
+	$(document).ready(function(){
+		
+	$("#read_img").hover(function()
+		{$(this).animate({width: 			"350px",height:"250px"}, 'fast');},
+		function()
+		 {$(this).animate({width: 			"300px",height:"200px"}, 'fast');
+		 
+	
+		});
+	
+	$("#write_img").hover(function()
+		{$(this).animate({width: 			"350px",height:"250px"}, 'fast');},
+		function()
+		 {$(this).animate({width: 			"300px",height:"200px"}, 'fast');
+		 
+	
+		});
+	
+
+	});
+
+</script>
+
+</head>
+
+<body>
+
+	<center><h1> <img id="logo_img" src="logo.jpg" alt="read" 		width="700"height="150"> </h1></center> 
+	<div>
+	<div id="read_homepage" float="left">
+		<img id="read_img" src="books.jpg" alt="read" 		width="300"height="200">
+
+	</div>
+	<div id="write_homepage" float="left">
+		<img id="write_img" src="write.jpg" alt="write" 		width="300"height="200">
+	</div>
+	</div>	
+		
+</body>
+
+</html>

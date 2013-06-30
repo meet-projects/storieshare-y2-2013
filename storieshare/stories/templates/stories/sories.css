@@ -1,12 +1,12 @@
 body{background-image:url('clouds.jpg');}
-#read_homepage{position:relative;
- top:60px;
+#read_homepage{position:absolute;
+ top:250px;
  left:210px;}
 #write_homepage{position:	
 absolute;
  top:250px;
- left:700px;}
-
+ left:720px;}
+p{font-style:italic;font-size:3em}
 
 
 

@@ -1,6 +1,7 @@
+{% load staticfiles %}
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="sories.css">
+	<link rel="stylesheet" type="text/css" href="{% static stories/sories.css %}">
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
 
@@ -34,15 +35,15 @@
 
 <body>
 
-	<center><h1> <img id="logo_img" src="logo.jpg" alt="read" 		width="700"height="150"> </h1></center> 
+	<center><h1> <img id="logo_img" src="{% static stories/logo.jpg %}" alt="read" 		width="700"height="150"> </h1></center> 
 	
 	<div id="read_homepage" float="left">
-		<img id="read_img" src="books.jpg" alt="read" 		width="300"height="200"><center>
+		<img id="read_img" src="{% static stories/books.jpg %}" alt="read" 		width="300"height="200"><center>
 	<p id="pp">read</p>
 
 	</div>
 	<div id="write_homepage" float="left">
-		<img id="write_img" src="write.jpg" alt="write" 		width="300"height="200">
+		<img id="write_img" src="{% static stories/write.jpg %}" alt="write" 		width="300"height="200">
 	<br>
 	<center><p>write</p></center>
 	</div>

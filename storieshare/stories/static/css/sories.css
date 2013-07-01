@@ -1,4 +1,4 @@
-body{background-image:url('clouds.jpg');}
+body{background-image:"{{ STATIC_URL }}images/clouds.jpg";}
 #read_homepage{position:absolute;
  top:250px;
  left:150px;}

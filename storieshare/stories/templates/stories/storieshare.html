@@ -1,6 +1,6 @@
 <html>
 <head>
-	<link rel="stylesheet" type="text/css" href="sories.css">
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/sories.css">
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
 
@@ -34,7 +34,7 @@
 
 <body>
 
-	<center><h1> <img id="logo_img" src="logo.png" alt="read" 		width="160"height="97"> </h1></center> 
+	<center><h1> <img id="logo_img" src="{{ STATIC_URL }}images/logo.png" alt="read" 		width="160"height="97"> </h1></center> 
 	<div id="login_signup">
 	<form><input class="login2" type="button" value="login"></input></fotm>
 	<form><input class="login2" type="button" value="signup"></input></fotm>
@@ -43,12 +43,12 @@
 	<br>
 	<center><div>	
 	<div id="read_homepage" float="left">
-		<img id="read_img" src="books.jpg" alt="read" 		width="300"height="200"><center>
+		<img id="read_img" src="{{ STATIC_URL }}images/books.jpg" alt="read" 		width="300"height="200"><center>
 	<p class="read_write"">Read</p>
 
 	</div>
 	<div id="write_homepage" float="left">
-		<img id="write_img" src="write.jpg" alt="write" 		width="300"height="200">
+		<img id="write_img" src="{{ STATIC_URL }}images/write.jpg" alt="write" 		width="300"height="200">
 	<br>
 	<center><p class="read_write">Write</p></center>
 	</div>

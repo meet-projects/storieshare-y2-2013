@@ -1,0 +1,23 @@
+<html>
+	<head>
+
+
+
+	</head>
+	<body>
+		<center><h1> <img id="logo_img" src="{{ STATIC_URL }}images/logo.png" alt="read" 		width="160"height="97"> </h1></center> 
+		{% if paragraphs %}
+			 {% for paragraph in paragraphs %}
+				<h1>{{paragraph.story.storyHeadline}}</h1>
+				<p>{{paragraph.pargraphContent}}</p>
+			 {% endfor %}	
+		{% else %}
+			this story is empty
+		{% endif %}
+			
+
+	</body>
+
+
+
+</html>

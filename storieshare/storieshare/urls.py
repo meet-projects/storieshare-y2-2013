@@ -5,6 +5,8 @@ from stories import views
 # admin.autodiscover()
 
 urlpatterns = patterns('', url (r'^storieshare/' , views.homepage), 
+						url (r'^addstory$' , views.addstory),
+						url (r'^writtenstory$' , views.writtenstory),
     # Examples:
     # url(r'^$', 'storieshare.views.home', name='home'),
     # url(r'^storieshare/', include('storieshare.foo.urls')),

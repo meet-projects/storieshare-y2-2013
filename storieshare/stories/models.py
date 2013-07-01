@@ -9,16 +9,16 @@ from django.db import models
 #        return username
 
 class story (models.Model):
-    storyTitle = models.CharField(max_length = 25) 
-    storyLikes = models.IntegerField()
-    storyComments = models.CharField(max_length = 250)
+    storyHeadline = models.CharField(max_length = 25) 
+    storyDescription = models.CharField(max_length = 100)
+  
     
 class Paragraph (models.Model):
     pargraphContent = models.CharField(max_length = 500)
-    Story = models.ForeignKey("story")
+    story = models.ForeignKey("story")
 
-class Comments (models.Model):
-    Comment = models.ForeignKey("story")
+#class Comments (models.Model):
+    #Comment = models.ForeignKey("story")
 
 
 

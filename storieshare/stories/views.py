@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from models import story
 def homepage (request):
@@ -17,7 +17,7 @@ def newstory (request):
 
 def writtenstory (request) :
 	List_of_stories = story.objects.all ()
-	story_to_show = List_of_stories [-1]
+	story_to_show = List_of_stories[(len(List_of_stories)-1)]
 	List_of_paragraphs = Paragraph.objects.filter (story = story_to_show)
 	context = {"paragraphs" : List_of_paragraphs}
 	

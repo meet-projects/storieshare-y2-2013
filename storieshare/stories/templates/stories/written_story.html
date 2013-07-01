@@ -1,6 +1,6 @@
 <html>
 	<head>
-
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/written_story.css">
 
 
 	</head>
@@ -8,8 +8,8 @@
 		<center><h1> <img id="logo_img" src="{{ STATIC_URL }}images/logo.png" alt="read" 		width="160"height="97"> </h1></center> 
 		{% if paragraphs %}
 			 {% for paragraph in paragraphs %}
-				<h1>{{paragraph.story.storyHeadline}}</h1>
-				<p>{{paragraph.pargraphContent}}</p>
+				<center><h1>{{paragraph.story.storyHeadline}}</h1></center>
+				<center><p>{{paragraph.pargraphContent}}</p></center>
 			 {% endfor %}	
 		{% else %}
 			this story is empty

@@ -4,7 +4,10 @@
 		
 	</head>
 	<body>
-	<center><h1> <img id="logo_img" src="logo.png" alt="read" 		width="160"height="97"> </h1></center> 
-	<input type="text" name="write the story's headline"></input>
+	<center><h1> <img id="logo_img" src="logo.png" alt="read" width="160"height="97"> </h1></center> 
+	<form action="newstory" method="post">
+	{% csrf_token%}
+	
+	<input type="text" name="write the story's headline"></input></form>
 	<body>
 </html>

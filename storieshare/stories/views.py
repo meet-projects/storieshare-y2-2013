@@ -4,10 +4,13 @@ from models import story
 def homepage (request):
     return render(request,'stories/storieshare.html',{})
 
+def addstory (request):
+    return render(request,'stories/add_story.html',{})
+
 def newstory (request):
-	Headline = request.POST ["Headline"]
-	Description  = request.POST ["Description"]
-	Story = request.POST ["Story"]
+	Headline = request.POST["Headline"]
+	Description  = request.POST["Description"]
+	Story = request.POST["Story"]
 	a = story (storyHeadline = Headline , storyDescription = Description )
 	a.save ()
 	return HttpResponseRedirect ('writtenstory')

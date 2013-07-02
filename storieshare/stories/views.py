@@ -1,6 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from models import story
+from models import Paragraph
 def homepage (request):
     return render(request,'stories/storieshare.html',{})
 
@@ -12,7 +13,9 @@ def newstory (request):
 	Description  = request.POST["Description"]
 	Story = request.POST["Story"]
 	a = story (storyHeadline = Headline , storyDescription = Description )
-	a.save ()
+	a.save ()	
+	b = Paragraph (pargraphContent = Story, story = a)
+	b.save ()
 	return HttpResponseRedirect ('writtenstory')
 
 def writtenstory (request) :

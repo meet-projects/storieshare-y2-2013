@@ -67,11 +67,14 @@ def profile (request) :
 	context = {"username" : ""}
 	return render (request, "submit/profile.html", context)
 
-
-
-
-
-
-
-
-
+def readstory (request) :
+	List_of_stories = story.objects.all()
+	List_of_paragraphs = Paragraph.objects.all()
+	context = {"stories": List_of_stories, "paragraphs" : List_of_paragraphs}
+	return render(request,'stories/read_stories.html',context)
+def showstory(request,story_id) :
+	s = story.objects.filter(storyID=story_id)
+	List_of_para = Paragraph.objects.filter(story = s[0])
+	context = {"paragraphs" : List_of_para}
+	return render(request,'stories/show_story.html',context)
+	

@@ -3,11 +3,12 @@ from stories import views
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
-
 urlpatterns = patterns('', url (r'^storieshare/' , views.homepage), 
 						url (r'^addstory$' , views.addstory), 
 						url (r'^newstory$' , views.newstory),
 						url (r'^writtenstory$' , views.writtenstory),
+						url (r'^readstory$' , views.readstory),
+						url (r'^readstory/(?P<story_id>\d+)$',views.showstory),
     # Examples:
     # url(r'^$', 'storieshare.views.home', name='home'),
     # url(r'^storieshare/', include('storieshare.foo.urls')),

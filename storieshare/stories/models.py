@@ -15,8 +15,13 @@ class story(models.Model):
   
     
 class Paragraph(models.Model):
-    pargraphContent = models.CharField(max_length = 500)
+    pargraphContent = models.CharField(max_length = 50000)
     story = models.ForeignKey("story")
+
+class comment(models.Model):
+	writer=models.CharField(max_length = 20) 
+	commentContent = models.CharField(max_length = 100) 
+	story = models.ForeignKey("story")
 
 #class Comments (models.Model):
     #Comment = models.ForeignKey("story")

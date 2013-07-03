@@ -7,12 +7,13 @@ urlpatterns = patterns('', url (r'^storieshare/' , views.homepage),
 						url (r'^addstory$' , views.addstory), 
 						url (r'^newstory$' , views.newstory),
 						url (r'^writtenstory$' , views.writtenstory),
-						url (r'^login$', views.login),
-						url (r'^submitlogin$', views.submitlogin),
-						url (r'^profile$', views.profile,
-)
+						#url (r'^login$', views.login),
+						#url (r'^submitlogin$', views.submitlogin),
+						#url (r'^profile$', views.profile),
 						url (r'^readstory$' , views.readstory),
 						url (r'^readstory/(?P<story_id>\d+)$',views.showstory),
+						url (r'^readstory/(?P<story_id>\d+)/newcomment$',views.newcomment),
+						
     # Examples:
     # url(r'^$', 'storieshare.views.home', name='home'),
     # url(r'^storieshare/', include('storieshare.foo.urls')),

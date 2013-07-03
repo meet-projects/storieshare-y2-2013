@@ -15,6 +15,30 @@
 				this story is empty
 			{% endif %}
 			
+			{% if coms %}
+				<center><table border="1">
+				<tr>
+				 {% for com in coms %}
+					<tr>
+					<th><p>{{com.writer}}</p></th>
+					<th><p>{{com.commentContent}}</p>
+				 {% endfor %}
+				</table></center>
+			{% endif %}
+			
+				
+			<form action="newcomment" method="post" id="usrform">
+			{% csrf_token %}
+			<input type="hidden" name="Story" value="{{paragraph.story}}"></input>
+			
+
+			<center><table border="1">
+			<tr>
+			<th> comment:</th><th><textarea rows="5" cols="40" name="Com" form="usrform">Enter your comment 				here...</textarea></th>
+			<th> <input type="text" name="Writer"/>your name</input></th>
+			<th><input class="done" type="submit" value="Done"/></th>
+			</form>
+			
 
 	</body>
 

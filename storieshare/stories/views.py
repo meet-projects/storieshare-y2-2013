@@ -27,15 +27,17 @@ def newstory (request):
 
 def newcomment (request,story_id) :
 	s = request.POST["Story"]
+	d=story.objects.filter(storyID=story_id)
+	p=d[0]
 	com = request.POST["Com"]
 	w = request.POST["Writer"]	
-	c=comment (writer = w , commentContent = com , story= s)
+	c=comment (writer = w , commentContent = com , story= p)
 	c.save()
 	s = story.objects.filter(storyID=story_id)
 	List_of_para = Paragraph.objects.filter(story = s[0])
 	c=story.objects.filter(storyID=story_id)
-	context = {"paragraphs" : List_of_para,"coms":c}
-	render(request,'stories/show_story.html',context)
+	context = {"paragraphs" : List_of_para,"coms":c,"t":story_id}
+	return HttpResponseRedirect ('/readstory/'+str(story_id))
 
 
 
@@ -94,7 +96,7 @@ def readstory (request) :
 def showstory(request,story_id) :
 	s = story.objects.filter(storyID=story_id)
 	List_of_para = Paragraph.objects.filter(story = s[0])
-	c=story.objects.filter(storyID=story_id)
-	context = {"paragraphs" : List_of_para,"coms":c}
+	c=comment.objects.filter(story=s[0])
+	context = {"paragraphs" : List_of_para,"coms":c,"t":story_id}
 	return render(request,'stories/show_story.html',context)
 	

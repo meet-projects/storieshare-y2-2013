@@ -7,13 +7,15 @@ from django.db import models
 #
 #    def _unicode_(self):
 #        return username
-
+class genre (models.Model):
+	genreName = models.CharField(max_length = 25)
+	
 class story(models.Model):
     storyHeadline = models.CharField(max_length = 25) 
     storyDescription = models.CharField(max_length = 100)
     storyID = models.AutoField(primary_key=True)
-  
-    
+    storyPublic=models.BooleanField()
+    storyGenre = models.ForeignKey("genre")
 class Paragraph(models.Model):
     pargraphContent = models.CharField(max_length = 50000)
     story = models.ForeignKey("story")

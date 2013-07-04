@@ -14,7 +14,8 @@ urlpatterns = patterns('', url (r'^storieshare/' , views.homepage),
 						url (r'^readstory/(?P<story_id>\d+)$',views.showstory),
 						url (r'^readstory/(?P<story_id>\d+)/newcomment$',views.newcomment),
 						url (r'^readstory/(?P<story_id>\d+)/newpara$' , views.newpara),
-						url (r'^readstory/(?P<story_id>\d+)/newpara/add$' , views.addpara),
+						url (r'^readstory/(?P<story_id>\d+)/newpara/add$' , views.showstory),
+						url (r'^readstory/search$',views.search),
     # Examples:
 
     # url(r'^$', 'storieshare.views.home', name='home'),

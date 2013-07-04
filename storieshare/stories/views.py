@@ -13,12 +13,29 @@ def homepage (request):
 
 def addstory (request):
     return render(request,'stories/add_story.html',{})
+def search (request):
+	string = request.POST["searchString"]
+	List_of_stories = story.objects.filter(storyHeadline=string)	
+	context = {"stories": List_of_stories}
+	return render(request,'stories/read_stories.html',context)
+
+
+
 
 def newstory (request):
 	Headline = request.POST["Headline"]
 	Description  = request.POST["Description"]
 	Story = request.POST["Story"]
-	a = story (storyHeadline = Headline , storyDescription = Description )
+	public= request.POST["storyPublic"]
+	genre_name=request.POST["storyPublic"]
+	story_genre=genre.objects.filter(genreName=genre_name)
+	publicbool=False
+	if public=="1":
+		publicbool=True
+	else:
+		publicbool=False
+	print publicbool
+	a = story (storyHeadline = Headline , storyDescription = Description, storyPublic=publicbool, storyGenre=story_genre[0])
 	a.save ()	
 	b = Paragraph (pargraphContent = Story, story = a)
 	b.save ()
@@ -105,8 +122,8 @@ def addpara (request,story_id) :
 
 def readstory (request) :
 	List_of_stories = story.objects.all()
-	List_of_paragraphs = Paragraph.objects.all()
-	context = {"stories": List_of_stories, "paragraphs" : List_of_paragraphs}
+	
+	context = {"stories": List_of_stories}
 	return render(request,'stories/read_stories.html',context)
 
 
@@ -115,6 +132,7 @@ def showstory(request,story_id) :
 	s = story.objects.filter(storyID=story_id)
 	List_of_para = Paragraph.objects.filter(story = s[0])
 	c=comment.objects.filter(story=s[0])
+	
 	context = {"paragraphs" : List_of_para,"coms":c,"t":story_id}
 	return render(request,'stories/show_story.html',context)
 	

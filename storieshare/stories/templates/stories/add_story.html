@@ -10,14 +10,12 @@
 	{% csrf_token %}
 
 	<center><div id="input">
-	<table border="1">	
+		
 	<tr>
-	<th>Headline:</th><th><input type="text" name="Headline"/></input></th><br>
+	<th>Headline:</th><th><input type="text" name="Headline" placeholder="choosa a headline"/></input></th><br>
 	<tr>
-	<th>Short description:</th><th><input type="text" name="Description"/></input><th><br>
-	<tr>
-	<th>the story:</th><th><textarea rows="25" cols="75" name="Story" form="usrform">Enter your story here...</textarea></th><br>
-	</table>
+	<th>the story:</th><th><textarea rows="30" cols="90" name="Story" form="usrform" placeholder="enter your text here" ></textarea></th><br>
+	
 	<input class="done" type="submit" value="Done"/>
 	</div></center>
 	</form>

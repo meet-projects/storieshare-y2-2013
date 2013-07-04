@@ -19,12 +19,12 @@
 
 
 			<center>
-			<form action="/readstory/{{t}}/newpara/add" method="post" id="usrform">
+			<form action="/readstory/{{t}}/newpara/add" method="post" id="usrform" >
 			{% csrf_token %}
 
 			<input type="hidden" name="Story" value="{{paragraph.story}}"></input>
 
-			<textarea rows="5" cols="40" name="Para" form="usrform">Enter your paragraph here...</textarea>
+			<textarea rows="5" cols="40" name="Para" form="usrform" placeholder=" enter your text here" class="namebox"></textarea>
 
 			<input class="done" type="submit" value="Add"/>
 			</form>

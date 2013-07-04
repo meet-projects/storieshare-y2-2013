@@ -1,5 +1,6 @@
 body{background-image:url('../../static/images/clouds.jpg');}
-.home{
+#comment{display:none}
+.bo {
 	-moz-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
 	box-shadow:inset 0px 1px 0px 0px #bbdaf7;

@@ -1,0 +1,34 @@
+<html>
+	<head>
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/written.css">
+	</head>
+	<body>
+	<center><h1><a href="http://127.0.0.1:8001/storieshare/"> <img id="logo_img" src="{{ STATIC_URL }}images/logo.png" 		alt="read" 		width="160"height="97"></a> </h1></center> 
+			{% if paragraphs %}
+				 {% for paragraph in paragraphs %}
+					{% if forloop.counter == 1 %}
+					<center><h1>{{paragraph.story.storyHeadline}}</h1></center>
+					{% endif %}
+					
+					<center><p>{{paragraph.pargraphContent}}</p></center>
+				 {% endfor %}	
+			{% else %}
+				this story is empty
+			{% endif %}
+
+
+
+			<center>
+			<form action="/readstory/{{t}}/newpara/add" method="post" id="usrform">
+			{% csrf_token %}
+
+			<input type="hidden" name="Story" value="{{paragraph.story}}"></input>
+
+			<textarea rows="5" cols="40" name="Para" form="usrform">Enter your paragraph here...</textarea>
+
+			<input class="done" type="submit" value="Add"/>
+			</form>
+			</center>
+
+	</body>
+</html>

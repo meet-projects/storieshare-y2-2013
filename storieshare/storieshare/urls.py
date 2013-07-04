@@ -13,8 +13,10 @@ urlpatterns = patterns('', url (r'^storieshare/' , views.homepage),
 						url (r'^readstory$' , views.readstory),
 						url (r'^readstory/(?P<story_id>\d+)$',views.showstory),
 						url (r'^readstory/(?P<story_id>\d+)/newcomment$',views.newcomment),
-						
+						url (r'^readstory/(?P<story_id>\d+)/newpara$' , views.newpara),
+						url (r'^readstory/(?P<story_id>\d+)/newpara/add$' , views.addpara),
     # Examples:
+
     # url(r'^$', 'storieshare.views.home', name='home'),
     # url(r'^storieshare/', include('storieshare.foo.urls')),
 

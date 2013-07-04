@@ -84,6 +84,24 @@ def writtenstory (request) :
 #def profile (request) :
 #	context = {"username" : ""}
 #	return render (request, "submit/profile.html", context)
+def newpara (request,story_id) :
+	s = story.objects.filter(storyID=story_id)
+	List_of_para = Paragraph.objects.filter(story = s[0])
+	context = {"paragraphs" : List_of_para,"t":story_id}
+	return render(request,'stories/add_paragraph.html',context)
+
+
+
+def addpara (request,story_id) :
+	com = request.POST["Para"]
+	s = story.objects.filter(storyID=story_id)
+	para_s=s[0]
+	b = Paragraph (pargraphContent = com, story = para_s)
+	b.save()	
+	List_of_para = Paragraph.objects.filter(story = s[0])
+	c=story.objects.filter(storyID=story_id)
+	context = {"paragraphs" : List_of_para,"coms":c,"t":story_id}
+	return HttpResponseRedirect ('/readstory/'+str(story_id))
 
 def readstory (request) :
 	List_of_stories = story.objects.all()

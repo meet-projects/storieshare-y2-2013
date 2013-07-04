@@ -1,20 +1,36 @@
 <html>
 	<head>
-		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/written.css">
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/show.css">
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
 
+		<script type="text/javascript">
+
+
+		$(document).ready(function () {
+			$("#cb").click(function (){
+				$("#comment").toggle();
+				
+				
+			});
+		});
+		</script>
 
 	</head>
 	<body>
 		<center><h1><a href="http://127.0.0.1:8001/storieshare/"> <img id="logo_img" src="{{ STATIC_URL }}images/logo.png" alt="read" 		width="160"height="97"></a> </h1></center> 
 			{% if paragraphs %}
+				 
 				 {% for paragraph in paragraphs %}
+					{% if forloop.counter == 1 %}
 					<center><h1>{{paragraph.story.storyHeadline}}</h1></center>
+					{% endif %}
 					<center><p>{{paragraph.pargraphContent}}</p></center>
 				 {% endfor %}	
 			{% else %}
 				this story is empty
 			{% endif %}
-			
+			<a href="/readstory/{{t}}/newpara"><center><input class="bo" id="pb" type="button" value="add paragraph"></input></a>
 			{% if coms %}
 				<center><table border="1">
 				<tr>
@@ -26,6 +42,11 @@
 				</table></center>
 			{% endif %}
 			
+<br>
+<br>
+			<center><input class="bo" id="cb" type="button" value="add comment"></input>
+			<br>
+			<div id="comment">
 				
 			<form action="/readstory/{{t}}/newcomment" method="post" id="usrform">
 			{% csrf_token %}
@@ -38,6 +59,7 @@
 			<th> <input type="text" name="Writer"/>your name</input></th>
 			<th><input class="done" type="submit" value="Done"/></th>
 			</form>
+			</div>
 			
 
 	</body>

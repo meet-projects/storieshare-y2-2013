@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+
 from stories import views
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
@@ -17,6 +18,8 @@ urlpatterns = patterns('', url (r'^storieshare/' , views.homepage),
 						url (r'^readstory/(?P<story_id>\d+)/newpara/add$' , views.addpara),
 						url (r'^readstory/search$',views.search),
 						url (r'^readstory/genre$',views.read_genre),
+						url (r'^play$',views.play),
+						url (r'^play/add$',views.add_play),
     # Examples:
 
     # url(r'^$', 'storieshare.views.home', name='home'),

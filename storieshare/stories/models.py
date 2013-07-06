@@ -16,11 +16,22 @@ class story(models.Model):
     storyID = models.AutoField(primary_key=True)
     storyPublic=models.BooleanField()
     storyGenre = models.ForeignKey("genre")
+
 class Paragraph(models.Model):
     pargraphContent = models.CharField(max_length = 50000)
     story = models.ForeignKey("story")
+
 class line(models.Model):
 	lineContent = models.CharField(max_length = 100) 
+	linestory = models.ForeignKey("linesStory")
+
+class linesStory(models.Model):
+	storyWriter = models.CharField(max_length = 100)	
+	storyName = models.CharField(max_length = 100)		
+	storyFinish = models.BooleanField()
+	storyNumber = models.AutoField(primary_key=True)
+	length = models.IntegerField()	
+
 class comment(models.Model):
 	writer=models.CharField(max_length = 20) 
 	commentContent = models.CharField(max_length = 100) 

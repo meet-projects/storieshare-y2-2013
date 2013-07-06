@@ -4,6 +4,7 @@ from models import story
 from models import Paragraph
 from models import comment
 from models import genre
+from models import linesStory
 from django import forms
 #from django.contrib.auth import authenticate
 #from django.contrib.auth import logout
@@ -14,6 +15,7 @@ def homepage (request):
 
 def addstory (request):
     return render(request,'stories/add_story.html',{})
+
 def search (request):
 	string = request.POST["searchString"]
 	List_of_stories=[]
@@ -24,7 +26,35 @@ def search (request):
 	context = {"stories": List_of_stories}
 	return render(request,'stories/read_stories.html',context)
 
-
+def add_play (request):
+	sname = request.POST["storyname"]
+	name = request.POST["writername"]
+	num = request.POST["number"]		
+	t= linesStory(storyWriter=name, storyName=sname,storyFinish=False, length=num)
+	t.save()
+	finishedstories=[]
+	un_finishedstories=[]
+	stories=linesStory.objects.all()
+	for story_x in stories:
+		if story_x.storyFinish==True:
+			finishedstories.append(story_x)
+		else:
+			un_finishedstories.append(story_x)
+	context = {"finishedstories": finishedstories,"un_finishedstories":un_finishedstories}
+	return render(request,'stories/play.html',context)
+	
+def play (request):
+	finishedstories=[]
+	un_finishedstories=[]
+	stories=linesStory.objects.all()
+	for story_x in stories:
+		if story_x.storyFinish==True:
+			finishedstories.append(story_x)
+		else:
+			un_finishedstories.append(story_x)
+	context = {"finishedstories": finishedstories,"un_finishedstories":un_finishedstories}
+	return render(request,'stories/play.html',context)
+	
 def read_genre (request):
 	choose = request.POST["click"]
 	print choose

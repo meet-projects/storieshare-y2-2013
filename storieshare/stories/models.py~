@@ -19,7 +19,8 @@ class story(models.Model):
 class Paragraph(models.Model):
     pargraphContent = models.CharField(max_length = 50000)
     story = models.ForeignKey("story")
-
+class line(models.Model):
+	lineContent = models.CharField(max_length = 100) 
 class comment(models.Model):
 	writer=models.CharField(max_length = 20) 
 	commentContent = models.CharField(max_length = 100) 

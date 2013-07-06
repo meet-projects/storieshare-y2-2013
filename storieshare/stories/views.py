@@ -3,6 +3,7 @@ from django.shortcuts import render
 from models import story
 from models import Paragraph
 from models import comment
+from models import genre
 from django import forms
 #from django.contrib.auth import authenticate
 #from django.contrib.auth import logout
@@ -15,11 +16,22 @@ def addstory (request):
     return render(request,'stories/add_story.html',{})
 def search (request):
 	string = request.POST["searchString"]
-	List_of_stories = story.objects.filter(storyHeadline=string)	
+	List_of_stories=[]
+	stories = story.objects.all()
+	for storyn in stories:
+		if storyn.storyHeadline.find(string)!=-1:
+			List_of_stories.append(storyn)	
 	context = {"stories": List_of_stories}
 	return render(request,'stories/read_stories.html',context)
 
 
+def read_genre (request):
+	choose = request.POST["click"]
+	print choose
+	genre_read = genre.objects.filter(genreName=choose)
+	List_of_stories = story.objects.filter(storyGenre=genre_read[0])
+	context = {"stories": List_of_stories}
+	return render(request,'stories/read_stories.html',context)
 
 
 def newstory (request):
@@ -27,8 +39,19 @@ def newstory (request):
 	Description  = request.POST["Description"]
 	Story = request.POST["Story"]
 	public= request.POST["storyPublic"]
-	genre_name=request.POST["storyPublic"]
-	story_genre=genre.objects.filter(genreName=genre_name)
+	Genre=request.POST["generChoose"]
+	print genre
+	if (Genre=="1"):
+		story_genre=genre.objects.filter(genreName="funny")
+	elif (Genre=="2"):
+		story_genre=genre.objects.filter(genreName="scary")
+	elif (Genre=="3"):
+		story_genre=genre.objects.filter(genreName="real")
+	elif (Genre=="4"):
+		story_genre=genre.objects.filter(genreName="other")
+	else:
+		print "FAIL!"
+		store_genre = None
 	publicbool=False
 	if public=="1":
 		publicbool=True

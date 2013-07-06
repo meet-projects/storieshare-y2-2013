@@ -10,9 +10,11 @@
 	{% csrf_token %}
 
 	<center><div id="input">
-		
+	<table border="1">
 	<tr>
 	<th>Headline:</th><th><input type="text" name="Headline" placeholder="choosa a headline"/></input></th><br>
+	<tr>
+	<th>short Description:</th><th><input type="text" name="Description" placeholder="choosa a Description"/></input></th><br>
 	<tr>
 	<th>the story:</th><th><textarea rows="25" cols="75" name="Story" form="usrform" placeholder="Enter your story here..."></textarea></th><br>
 	<tr>
@@ -21,10 +23,10 @@
 	<th><input type="checkbox" name="storyPublic" value=1 /></th>
 	<tr>
 	<th>genre of the story:</th>
-	<th>funny:<input type="checkbox" name="generChoose" value="funny" />
-	scary:<input type="checkbox" name="generChoose" value="scary" />
-	real:<input type="checkbox" name="generChoose" value="real" />
-	other:<input type="checkbox" name="generChoose" value="other" />
+	<th>funny:<input type="checkbox" name="generChoose" value="1"/>
+	scary:<input type="checkbox" name="generChoose" value="2" />
+	real:<input type="checkbox" name="generChoose" value="3" />
+	other:<input type="checkbox" name="generChoose" value="4" />
 	</table>
 	<input class="done" type="submit" value="Done"/>
 	

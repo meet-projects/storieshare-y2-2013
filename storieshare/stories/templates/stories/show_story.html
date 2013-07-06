@@ -14,6 +14,8 @@
 				
 				
 			});
+			
+			
 		});
 		</script>
 
@@ -35,9 +37,13 @@
 			{% if paragraphs.0.story.storyPublic == True %}
 				<div><a href="/readstory/{{t}}/newpara"><center><input class="bo" id="pb" type="button" value="add paragraph"></input></a></div>
 			{% endif %}
+			<br>
+			<br>
+			<br>
+			<center><input class="bo" id="cb" type="button" value="add comment"></input>
                         <div>
 
-			<a href="/readstory/{{t}}/newpara"><center><input class="bo" id="pb" type="button" value="add paragraph"></input></a>   </div>
+			
 
 				<form action="/readstory/{{t}}/newcomment" method="post" id="usrform">
 			{% csrf_token %}
@@ -45,13 +51,14 @@
 			
 
 			<left>
-			
+			<div id="comment">
                           <div><input class="namebox" type="text" name="Writer" form="usrform"  placeholder="name"> </div>
 		  <div id="space"><textarea class="namebox" rows="10" cols="120" name="Com" form="usrform" placeholder="enter your comment here" ></textarea>  </div> 
 			
-			<div id="spaced"><input class="done" type="submit" value="comment" id="namebox"/> </div>
+			<div id="spaced"><input class="bo" type="submit" value="comment" id="namebox"/> </div>
 
 			</form>
+			</div>
 			</left>
 			{% if coms %}
 				

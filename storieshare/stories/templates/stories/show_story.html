@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/show.css">
+
 		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
 
@@ -34,6 +35,10 @@
 			{% if paragraphs.0.story.storyPublic == True %}
 				<div><a href="/readstory/{{t}}/newpara"><center><input class="bo" id="pb" type="button" value="add paragraph"></input></a></div>
 			{% endif %}
+                        <div>
+
+			<a href="/readstory/{{t}}/newpara"><center><input class="bo" id="pb" type="button" value="add paragraph"></input></a>   </div>
+
 				<form action="/readstory/{{t}}/newcomment" method="post" id="usrform">
 			{% csrf_token %}
 			<input type="hidden" name="Story" value="{{paragraph.story}}"></input>
@@ -41,27 +46,26 @@
 
 			<left>
 			
-                          <div><input class="namebox" type="text" name="Writer" form="usrform" value="name"> </div>
-		  <div><textarea class="namebox" rows="5" cols="40" name="Com" form="usrform">Enter your comment here</textarea> </div> 
+                          <div><input class="namebox" type="text" name="Writer" form="usrform"  placeholder="name"> </div>
+		  <div id="space"><textarea class="namebox" rows="10" cols="120" name="Com" form="usrform" placeholder="enter your comment here" ></textarea>  </div> 
 			
-			<input class="done" type="submit" value="Done"/>
+			<div id="spaced"><input class="done" type="submit" value="comment" id="namebox"/> </div>
 
 			</form>
-			
+			</left>
 			{% if coms %}
 				
-				<tr><left>
-				 {% for com in coms %}
-					<tr>
-					<th><p>{{com.writer}}</p></th>
-					<th><p>{{com.commentContent}}</p>
+				<left>
+				 {% for com in coms reversed %}
+					
+					<div><span id="commentbox">  <p> <span id="commentor">{{com.writer}} </span>: <span> "{{com.commentContent}}" </span></p> <br><br> </span></div>
 				 {% endfor %}
 				<left>
 			{% endif %}
 			
 <br>
 <br>
-			<center><input class="bo" id="cb" type="button" value="add comment"></input>
+			<!--<center><input class="bo" id="cb" type="button" value="add comment"></input>
 			<br>
 			<div id="comment">
 				
@@ -72,11 +76,11 @@
 
 			<center><table border="1">
 			<tr>
-			<th> comment:</th><th><textarea rows="5" cols="40" name="Com" form="usrform">Enter your comment 				here...</textarea></th>
-			<th> <input type="text" name="Writer"/>your name</input></th>
+			<th> comment:</th><th><textarea rows="5" cols="40" name="Com" form="usrform" placeholder="enter your comment"></textarea></th>
+			<th> <input type="text" name="Writer" placeholder="enter your name"/></input></th>
 			<th><input class="bo" type="submit" value="Done"/></th>
 			</form>
-			</div>
+			</div>-->
 	</body>
 
 

@@ -30,7 +30,7 @@ class linesStory(models.Model):
 	storyName = models.CharField(max_length = 100)		
 	storyFinish = models.BooleanField()
 	storyNumber = models.AutoField(primary_key=True)
-	length = models.IntegerField()	
+	length = models.IntegerField()
 
 class comment(models.Model):
 	writer=models.CharField(max_length = 20) 

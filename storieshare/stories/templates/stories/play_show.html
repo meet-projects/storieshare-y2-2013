@@ -1,0 +1,56 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/show.css">
+
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+
+		
+	</head>
+	<body>
+		<center><h1><a href="http://127.0.0.1:8001/storieshare/"> <img id="logo_img" src="{{ STATIC_URL }}images/logo.png" alt="read" 		width="160"height="97"></a> </h1></center> 
+			lines left:{{re}}
+			
+			<br>
+			{% if lines %}
+				{% if re > 0 %}
+				 {% for line in lines %}
+					{% if forloop.counter == 1 %}
+					<center><h1>{{line.linesStory.storyName}}</h1></center>
+					{% endif %}
+					{% if forloop.counter == len %}
+					<center><p>the last line is:</p>
+					{{ line.lineContent }}</center>
+					{% endif %}
+				 {% endfor %}
+				{% else %}
+					<h2>the story is:</h2>
+					 {% for line in lines %}
+						<center><p>{{ line.lineContent }}</p></center>
+					{% endfor %}	
+						
+				{% endif %}	
+			{% else %}
+				this story is empty
+				
+			{% endif %} 
+			
+			
+			<br>
+			<br>
+			<br>
+			{% if len != story_len %}
+			<div>
+			<form action="/play/{{t}}/add" method="post" id="usrform" >
+			{% csrf_token %}
+			<input type="hidden" name="story" value="{{s}}"></input>
+			new line:<input type="text" name="text"/><input class="bo" type="submit" value="add"/>
+			{% endif %}
+			</form>
+                        </div>
+
+			
+
+			
+	</body>
+</html>

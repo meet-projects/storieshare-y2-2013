@@ -26,6 +26,24 @@ def search (request):
 			List_of_stories.append(storyn)	
 	context = {"stories": List_of_stories}
 	return render(request,'stories/read_stories.html',context)
+def add_line_play (request,number):
+	te = request.POST["text"]
+	stories=linesStory.objects.filter(storyNumber=number)
+	print "I am reaching this code"
+	li=line(linestory=stories[0],lineContent=te)
+	li.save()
+	story_len=stories[0].length
+	t=stories[0]
+	lines=line.objects.filter(linestory=t)
+	re=story_len-len(lines)
+	context = {"lines": lines,"t":number,"len":len(lines),"s":t,"story_len":story_len,"re":re}
+	return render(request,'stories/play_show.html',context)
+
+
+
+
+
+
 
 def add_play (request):
 	sname = request.POST["storyname"]
@@ -48,7 +66,7 @@ def show_play (request,number):
 	stories=linesStory.objects.filter(storyNumber=number)
 	t=stories[0]
 	lines=line.objects.filter(linestory=t)
-	context = {"liness": lines}
+	context = {"liness": lines,"t":number,"len":len(lines),"s":t}
 	return render(request,'stories/play_show.html',context)
 
 
@@ -57,7 +75,11 @@ def play (request):
 	finishedstories=[]
 	un_finishedstories=[]
 	stories=linesStory.objects.all()
+	
 	for storyx in stories:
+		lines=line.objects.filter(linestory=storyx)
+		if len(lines)==storyx.length:
+			storyx.storyFinish=True
 		if storyx.storyFinish==True:
 			finishedstories.append(storyx)
 		else:

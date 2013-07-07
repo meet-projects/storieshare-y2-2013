@@ -1,7 +1,7 @@
 <html>
 	<head>
 
-
+	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/show.css">
 
 	</head>
 
@@ -45,8 +45,8 @@
 	{% csrf_token %}
 	<input type="text" name="storyname" placeholder="the story name"/>
 	<input type="text" name="writername" placeholder="your name"/>
-	<input type="number" name="number"/>
-	<input class="done" type="submit" value="Done"/> 
+	<input type="number" placeholder="lines number" name="number"/>
+	<input class="bo" type="submit" value="Done"/> 
 	</div>
 	</body>
 

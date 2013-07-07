@@ -25,7 +25,7 @@ class line(models.Model):
 	lineContent = models.CharField(max_length = 100) 
 	linestory = models.ForeignKey("linesStory")
 
-class story(models.Model):
+class linesStory(models.Model):
 	storyWriter = models.CharField(max_length = 100)	
 	storyName = models.CharField(max_length = 100)		
 	storyFinish = models.BooleanField()

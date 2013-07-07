@@ -1,12 +1,15 @@
-<html>
+{% extends 'base.html' %}
 
-<head>
+<!--html-->
 
+<!--head-->
+
+        {% block headers %}
 	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/sories.css">
-	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/clock.css">
-	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="{{ STATIC_URL }}js/clock.js"></script>
+	<!--link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/clock.css"-->
+	<!--<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>-->
+	<!--script type="text/javascript" src="{{ STATIC_URL }}js/clock.js"></script-->
 
 		<script type="text/javascript">
 
@@ -34,12 +37,14 @@
 
 
 </script>
+{% endblock %}
 
+<!--/head-->
 
-</head>
+<!--body -->
+{% block content %}
+<!--div id="body">
 
-<body >
-<div id="body">
 <div class="container">
 <div class="clock">
 <div id="Date"></div>
@@ -56,7 +61,7 @@
 </div>
 </div>
 	<div> </div>
-	<div id="clockdigital"></div>
+	<div id="clockdigital"></div-->
 	<center><h1> <img id="logo_img" src="{{ STATIC_URL }}images/logo.png" alt="read" width="160"height="97"> </h1></center> 
 	<div id="login_signup">
 	</div>
@@ -76,7 +81,7 @@
 	</div>
 	</div></center>
 	<p id="copy">storieShare-MEET-Y2-2013</p>
-	
-</body>
+	{% endblock %}
+<!--/body-->
 
-</html>
+<!--/html-->

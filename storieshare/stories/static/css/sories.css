@@ -1,11 +1,11 @@
 body{background-image:url("../images/clouds.jpg");}
 #read_homepage{position:absolute;
- top:27%;
- left:55%;}
+ top:38%;
+ left:60%;}
 #write_homepage{position:	
 absolute;
- top:27%;
- left:35%;}
+ top:38%;
+ left:17%;}
 .read_write{font-style:italic;font-size:3em;color:blue}
 .login2 {
 	-moz-box-shadow:inset 0px 1px 0px 0px #bbdaf7;

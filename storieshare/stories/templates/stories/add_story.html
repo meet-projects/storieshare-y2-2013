@@ -1,10 +1,17 @@
-<html>
-	<head>
+{% extends 'base.html' %}
+<!--html-->
+	<!--head-->
+{% block headers %}
 		<!--<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/add_story.css">-->
-		<link rel="stylesheet" type="text/css" href="../../static/css/add_story.css"
-		
-	</head>
-	<body>
+		<link rel="stylesheet" type="text/css" href="../../static/css/add_story.css">
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/clock.css">
+		<script type="text/javascript" src="{{ STATIC_URL }}js/clock.js"></script>
+		{% endblock %}
+
+	<!--/head-->
+	<!--body-->
+{% block content %}
+        <div id="clockdigital"></div>
 	<center><h1><a href="http://127.0.0.1:8001/storieshare/"> <img id="logo_img" src="../../static/images/logo.png" alt="read" width="160"height="97"></a> </h1></center> 
 	<form action="newstory" method="post" id="usrform">
 	{% csrf_token %}
@@ -32,6 +39,6 @@
 	
 	</div></center>
 	</form>
-         
-	<body>
-</html>
+         {% endblock %}
+	<!--body-->
+<!--/html-->

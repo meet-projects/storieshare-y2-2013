@@ -27,10 +27,10 @@ def search (request):
 	return render(request,'stories/read_stories.html',context)
 
 def add_play (request):
-	s-name = request.POST["storyname"]
+	sname = request.POST["storyname"]
 	name = request.POST["writername"]
 	num = request.POST["number"]		
-	t= linesStory(storyWriter=name, storyName=s-name,storyFinish=False, length=num)
+	t= linesStory(storyWriter=name, storyName=sname,storyFinish=False, length=num)
 	t.save()
 	finishedstories=[]
 	un_finishedstories=[]
@@ -177,6 +177,7 @@ def readstory (request) :
 	List_of_stories = story.objects.all()
 	
 	context = {"stories": List_of_stories}
+	ptint List_of_stories[0].storyHeadline 
 	return render(request,'stories/read_stories.html',context)
 
 

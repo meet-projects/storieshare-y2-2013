@@ -5,6 +5,7 @@ from models import Paragraph
 from models import comment
 from models import genre
 from models import linesStory
+from models import line
 from django import forms
 #from django.contrib.auth import authenticate
 #from django.contrib.auth import logout
@@ -35,24 +36,34 @@ def add_play (request):
 	finishedstories=[]
 	un_finishedstories=[]
 	stories=linesStory.objects.all()
-	for story_x in stories:
-		if story_x.storyFinish==True:
-			finishedstories.append(story_x)
+	for storyx in stories:
+		if storyx.storyFinish==True:
+			finishedstories.append(storyx)
 		else:
-			un_finishedstories.append(story_x)
+			un_finishedstories.append(storyx)
 	context = {"finishedstories": finishedstories,"un_finishedstories":un_finishedstories}
+
 	return render(request,'stories/play.html',context)
+def show_play (request,number):
+	stories=linesStory.objects.filter(storyNumber=number)
+	t=stories[0]
+	lines=line.objects.filter(linestory=t)
+	context = {"liness": lines}
+	return render(request,'stories/play_show.html',context)
+
+
 	
 def play (request):
 	finishedstories=[]
 	un_finishedstories=[]
 	stories=linesStory.objects.all()
-	for story_x in stories:
-		if story_x.storyFinish==True:
-			finishedstories.append(story_x)
+	for storyx in stories:
+		if storyx.storyFinish==True:
+			finishedstories.append(storyx)
 		else:
-			un_finishedstories.append(story_x)
+			un_finishedstories.append(storyx)
 	context = {"finishedstories": finishedstories,"un_finishedstories":un_finishedstories}
+	
 	return render(request,'stories/play.html',context)
 	
 def read_genre (request):

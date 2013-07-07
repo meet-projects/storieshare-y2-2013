@@ -12,8 +12,8 @@
 		<tr>
 		<th><p>name</p></th>
 		
-		{% if finishstories %}
-			{% for story in finishstories %}
+		{% if finishedstories %}
+			{% for story in finishedstories %}
 				<tr>
 				<th><a href="http://127.0.0.1:8001/play/{{story.storyNumber}}"><h1>{{story.storyName}}</h1></a></th>				
 				
@@ -28,8 +28,8 @@
 		
 
 		<table border="1">
-		{% if un_finishstories %}
-			{% for story in un_finishstories %}
+		{% if un_finishedstories %}
+			{% for story in un_finishedstories %}
 				<tr>
 				<th><a href="http://127.0.0.1:8001/play/{{story.storyNumber}}"><h1>{{story.storyName}}</h1></a></th>				
 				

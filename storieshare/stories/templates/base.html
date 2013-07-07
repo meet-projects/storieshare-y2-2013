@@ -1,0 +1,44 @@
+<html>
+
+ <head>
+
+   <title>{% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/clock.css">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/clock.js"></script>
+
+   {% block headers %}
+   {% endblock %}
+
+   </head>
+
+   <body>
+
+   <div id="body">
+
+<div class="container">
+<div class="clock">
+<div id="Date"></div>
+
+<ul>
+	<li id="hours"> </li>
+    <li id="point">:</li>
+    <li id="min"> </li>
+    <li id="point">:</li>
+    <li id="sec"> </li>
+</ul>
+
+</div>
+</div>
+</div>
+	<div> </div>
+	<div id="clockdigital"></div>
+
+   {% block content %}
+
+   {% endblock %}
+
+ </body>
+</html>

@@ -1,7 +1,12 @@
 <html>
 	<head>
 
+
 	<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/show.css">
+
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/clock.css">
+		<script type="text/javascript" src="{{ STATIC_URL }}js/clock.js"></script>
+
 
 	</head>
 
@@ -9,14 +14,14 @@
 	<center><h1><a href="http://127.0.0.1:8001/storieshare/"> <img id="logo_img" src="{{ STATIC_URL }}images/logo.png" alt="read" width="160"height="97"></a> </h1></center> 
 	<center><table border="1">
 		<tr>
-		<th><p>name</p></th>
-		
+		<th><p>finished stories</p></th>
+		<th><p>creator</p></th>
 		{% if finishedstories %}
 			{% for story in finishedstories %}
 				<tr>
 				<th><a href="http://127.0.0.1:8001/play/{{story.storyNumber}}"><h1>{{story.storyName}}</h1></a></th>				
 				
-				
+				<th><p>{{story.storyWriter}}</p></th>
 		
 			{% endfor %}
 			{% else %}
@@ -26,7 +31,7 @@
 		</table></center>
 		
 
-		<table border="1">
+		<center><table border="1">
 		{% if un_finishedstories %}
 			{% for story in un_finishedstories %}
 				<tr>

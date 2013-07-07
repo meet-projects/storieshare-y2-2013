@@ -210,6 +210,7 @@ def readstory (request) :
 	List_of_stories = story.objects.all()
 	
 	context = {"stories": List_of_stories}
+	ptint List_of_stories[0].storyHeadline 
 	return render(request,'stories/read_stories.html',context)
 
 

@@ -1,13 +1,16 @@
-<html>
-	<head>
+{% extends 'base.html' %}
+<!--html-->
+	<!--head-->
+{% block headers %}
 		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/show.css">
 
 		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script type="text/javascript" src="http://code.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
 
-		
-	</head>
-	<body>
+		{% endblock %}
+	<!--/head-->
+	<!--body-->
+{% block content %}
 		<center><h1><a href="http://127.0.0.1:8001/storieshare/"> <img id="logo_img" src="{{ STATIC_URL }}images/logo.png" alt="read" 		width="160"height="97"></a> </h1></center> 
 			lines left:{{re}}
 			
@@ -50,7 +53,7 @@
                         </div>
 
 			
-
+{% endblock %}
 			
-	</body>
-</html>
+	<!--/body-->
+<!--/html-->
